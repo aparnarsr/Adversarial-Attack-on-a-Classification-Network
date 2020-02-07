@@ -174,7 +174,7 @@ def generate_experiment(img_path,method='FGSM'):
     input_img = Image.open(img_path)
 
     # define normalizer and un-normalizer for images
-    # cinic
+    # cinic dataset
     mean = [0.47889522, 0.47227842, 0.43047404]
     std = [0.24205776, 0.23828046, 0.25874835]
 
@@ -226,6 +226,7 @@ def generate_experiment(img_path,method='FGSM'):
 # %matplotlib inline
 target_label=[0,1,2,3,4,5,6,7,8,9]    
 Untargeted=False                                    
+# Image path
 img_path=os.getcwd()+'/drive/My Drive/AparnaCV/Data/train/'
 labels=['airplane','automobile','bird','cat','deer','dog','frog','horse','ship','truck']
 tot=[]
@@ -295,7 +296,7 @@ for label in labels:
               ).astype(np.uint8)
           )
 
-      img_diff = diff_img(img_adv, un_norm(input_tensor.squeeze(0)), scale=1) # you can play with scale to amplify the signals
+      img_diff = diff_img(img_adv, un_norm(input_tensor.squeeze(0)), scale=1) 
 
 
       # run classifier again for the attacked image
@@ -338,7 +339,7 @@ for label in labels:
                   ).astype(np.uint8)
               )
 
-          img_diff = diff_img(img_adv, un_norm(input_tensor.squeeze(0)), scale=1) # you can play with scale to amplify the signals
+          img_diff = diff_img(img_adv, un_norm(input_tensor.squeeze(0)), scale=1) 
           # print("Visualizing perturbation directly",img_diff)
 
 
